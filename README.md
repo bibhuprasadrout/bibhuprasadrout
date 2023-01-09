@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @bibhuprasadrout
 - 👀 I’m interested in web-development.
-- 🌱 I’m currently learning html, css, javascript.
+- 🌱 I’m a Frontend React Developer.
 - 💞️ I’m looking for a job that does not require me to have prior experience.
 - 📫 you can reach me at my email - bibhu.rs@gmail.com
 
