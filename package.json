@@ -1,0 +1,36 @@
+{
+  "name": "bibhuprasadrout",
+  "version": "1.0.0",
+  "description": "Hi, You are welcome to view my profile. If you like what you see, Let discuss some more over a cup of coffee.",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bibhuprasadrout/bibhuprasadrout.git"
+  },
+  "keywords": [
+    "bibhuprasadrout",
+    "profile",
+    "portfolio"
+  ],
+  "author": "Bibhu Prasad Rout",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bibhuprasadrout/bibhuprasadrout/issues"
+  },
+  "homepage": "https://github.com/bibhuprasadrout/bibhuprasadrout#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10",
+    "sass": "^1.57.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0"
+  }
+}
