@@ -30,6 +30,7 @@ const Nav = styled.div`
     right: 2.1rem;
     transform: translate(0, -50%);
     max-width: fit-content;
+    cursor: pointer;
     .icon {
       width: 2.1rem;
     }
