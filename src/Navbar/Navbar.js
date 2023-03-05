@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { Images } from "../Assets/Images";
 const navbarBackgroundAnimation = keyframes`
 0%{
   background-position: 0% 50%;
@@ -22,16 +23,29 @@ const Nav = styled.div`
   top: 0;
   height: 4rem;
   transition: all 1s ease;
-  .navItems {
-    display: flex;
+  border-radius: 0;
+  .menuIcon {
+    position: absolute;
+    top: 50%;
+    right: 2.1rem;
+    transform: translate(0, -50%);
+    max-width: fit-content;
+    .icon {
+      width: 2.1rem;
+    }
+    @media (min-width: 48em) {
+      display: none;
+    }
+  }
+  .navItems,
+  .navItemsMobile {
+    justify-content: center;
     gap: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     height: 100%;
-    max-width: fit-content;
-    margin: 0 13vw 0 auto;
-    padding: 0 3rem;
     align-items: center;
+    border-radius: 0;
     .link {
       transform: scale(1);
       color: ${(props) => props.theme.text_primary};
@@ -41,26 +55,27 @@ const Nav = styled.div`
       }
     }
   }
+  .navItemsMobile {
+    display: flex;
+    position: relative;
+    top: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: ${(props) => props.theme.secondary};
+    @media (min-width: 48em) {
+      display: none;
+    }
+  }
+  .navItems {
+    display: none;
+    @media (min-width: 48em) {
+      display: flex;
+      width: fit-content;
+      margin: 0 11vw 0 auto;
+    }
+  }
 `;
-
 export const Navbar = () => {
-  // const [navbar, setNavbar] = useState(false);
-  // const navController = () => {
-  //   console.log("navController is called");
-  //   console.log(document.body.scrollTop);
-  //   if (document.body.scrollTop > 50) {
-  //     console.log("scrollY is greater than 100");
-  //     setNavbar(true);
-  //   } else {
-  //     setNavbar(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   document.body.addEventListener("scroll", navController);
-  //   return () => {
-  //     document.body.removeEventListener("scroll", navController);
-  //   };
-  // }, []);
   const navItems = [
     {
       id: "navHome",
@@ -93,19 +108,70 @@ export const Navbar = () => {
       value: "Contact",
     },
   ];
+  const [menuVisiblity, setMenuVisiblity] = useState(false);
+  const handleMenuVisiblity = () => {
+    setMenuVisiblity((prev) => !prev);
+  };
+  const handleNavItemStyle = () => {};
   return (
     <>
       {
         <Nav>
-          <div className="navItems">
-            {navItems.map((item) => (
-              <Link className={item.className} to={item.url} key={item.id}>
-                {item.value}
-              </Link>
-            ))}
-          </div>
+          <span className="menuIcon" onClick={handleMenuVisiblity}>
+            <img className="icon" src={Images.burgerMenu} />
+          </span>
+          {menuVisiblity ? (
+            <div className="navItemsMobile">
+              {navItems.map((item) => (
+                <NavLink
+                  className={item.className}
+                  to={item.url}
+                  key={item.id}
+                  style={({ isActive }) =>
+                    isActive ? { color: "#F78733" } : undefined
+                  }
+                  onClick={handleMenuVisiblity}
+                >
+                  {item.value}
+                </NavLink>
+              ))}
+            </div>
+          ) : (
+            <div className="navItems">
+              {navItems.map((item) => (
+                <NavLink
+                  className={item.className}
+                  to={item.url}
+                  key={item.id}
+                  style={({ isActive }) =>
+                    isActive ? { color: "#F78733" } : undefined
+                  }
+                >
+                  {item.value}
+                </NavLink>
+              ))}
+            </div>
+          )}
         </Nav>
       }
     </>
   );
 };
+
+// const [navbar, setNavbar] = useState(false);
+// const navController = () => {
+//   console.log("navController is called");
+//   console.log(document.body.scrollTop);
+//   if (document.body.scrollTop > 50) {
+//     console.log("scrollY is greater than 100");
+//     setNavbar(true);
+//   } else {
+//     setNavbar(false);
+//   }
+// };
+// useEffect(() => {
+//   document.body.addEventListener("scroll", navController);
+//   return () => {
+//     document.body.removeEventListener("scroll", navController);
+//   };
+// }, []);

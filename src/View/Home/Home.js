@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { useTyper } from "../../Utils/Hooks/useTyper";
-
+import { AnchoredButton } from "../../DesignSystem/Utils/Button/Button";
 const blinkerSimulator = keyframes`
   0%{
           border-right: 7px solid #DFDCE3;
@@ -15,26 +14,32 @@ const blinkerSimulator = keyframes`
   `;
 const HomeBody = styled.section`
   display: flex;
+  justify-content: center;
   min-height: 70vh;
   height: 100%;
+  @media (min-width: 32em) {
+    width: max-content;
+    margin: 0 auto 0 17vw;
+  }
   .bodyContent {
-    flex: 1;
     display: flex;
-    align-items: center;
-    margin: 0 0 0 11vw;
+    flex-flow: column;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100%;
     .nameIntro {
-      min-width: 381px;
+      min-width: max-content;
       .hi {
         font-size: 1rem;
         padding: 0 0 0 0.13rem;
       }
       .name {
-        font-size: calc(2rem + 0.3vw);
+        font-size: calc(1.7rem + 0.7vw);
         font-weight: bold;
         color: ${(props) => props.theme.secondary};
       }
       .designation {
-        font-size: 1.3rem;
+        font-size: calc(1rem + 0.7vw);
         display: inline-flex;
         align-items: center;
         height: 2.1rem;
@@ -46,6 +51,7 @@ const HomeBody = styled.section`
           max-width: fit-content;
           height: 2.1rem;
           padding: 0 0.17rem;
+          border-radius: 0;
           animation: ${blinkerSimulator} linear infinite 3s alternate;
           color: ${(props) => props.theme.text_primary};
         }
@@ -53,7 +59,11 @@ const HomeBody = styled.section`
     }
   }
 `;
-export const Home = () => {
+const AerrowHead = styled.span`
+  font-size: 0.9rem;
+  padding: 0 0 0 0.7rem;
+`;
+export const Home = (props) => {
   const designation = [
     "React.js Developer",
     "JavaScript Developer",
@@ -71,8 +81,13 @@ export const Home = () => {
               <span className="typer">{useTyper(designation)}</span>
             </h3>
           </div>
+          <AnchoredButton
+            target={"_blank"}
+            href={"https://www.linkedin.com/in/bibhuprasadrout-lin/"}
+          >
+            Looking to hire <AerrowHead>⮞</AerrowHead>
+          </AnchoredButton>
         </div>
-        <div className="bodyContent"></div>
       </HomeBody>
     </>
   );

@@ -5,8 +5,13 @@ const FooterBody = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.theme.text_primary};
+  border-radius: 0;
 `;
 const FooterText = styled.span`
+  font-size: 0.87rem;
+  @media (min-width: 48em) {
+    font-size: 1rem;
+  }
   a {
     text-decoration: none;
     color: ${(props) => props.theme.secondary};

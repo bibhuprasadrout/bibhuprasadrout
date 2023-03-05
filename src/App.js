@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar/Navbar";
 import { Footer } from "./Footer/Footer";
 import { ThemeProvider } from "styled-components";
-import { GlobalTheme } from "./DesignSystem/Utils/constants";
+import { GlobalColors } from "./DesignSystem/Utils/constants";
 import styled from "styled-components";
 
 const BackgroundPrimary = styled.div`
@@ -18,7 +18,7 @@ const OutletWrapper = styled.div`
 const App = () => {
   return (
     <>
-      <ThemeProvider theme={GlobalTheme}>
+      <ThemeProvider theme={GlobalColors}>
         <BackgroundPrimary className="bodyBackgroundPrimary">
           <Navbar />
           <OutletWrapper className="outletWrapper">
