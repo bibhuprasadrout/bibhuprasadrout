@@ -4,7 +4,7 @@ const FooterBody = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.text_primary};
+  background-color: ${(props) => props.theme.fragment};
   border-radius: 0;
 `;
 const FooterText = styled.span`

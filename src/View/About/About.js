@@ -42,7 +42,7 @@ const AboutBody = styled.div`
             justify-content: center;
             align-items: center;
             border-radius: 11px 11px 11px 0;
-            background-color: ${(props) => props.theme.text_primary};
+            background-color: ${(props) => props.theme.fragment};
             grid-row-start: 1;
             grid-column-start: 1;
             .icon {
@@ -51,8 +51,8 @@ const AboutBody = styled.div`
           }
           .iconName {
             font-size: 1.3rem;
-            background-color: ${(props) => props.theme.text_primary};
-            color: ${(props) => props.theme.btn_primary};
+            background-color: ${(props) => props.theme.fragment};
+            color: ${(props) => props.theme.solid};
             grid-row-start: 1;
             grid-column-start: 1;
             height: 3rem;
@@ -92,6 +92,7 @@ export const About = () => {
               <a
                 className="iconBackdrop"
                 href={"https://www.linkedin.com/in/bibhuprasadrout-lin/"}
+                target={"_blank"}
               >
                 <span className="iconName">LinkedIn</span>
                 <span className="iconWrapper">
@@ -105,6 +106,7 @@ export const About = () => {
               <a
                 className="iconBackdrop"
                 href={"https://twitter.com/bibhuprasadrout"}
+                target={"_blank"}
               >
                 <span className="iconName">Twitter</span>
                 <span className="iconWrapper">
@@ -118,6 +120,7 @@ export const About = () => {
               <a
                 className="iconBackdrop"
                 href={"https://github.com/bibhuprasadrout"}
+                target={"_blank"}
               >
                 <span className="iconName">Github</span>
                 <span className="iconWrapper">

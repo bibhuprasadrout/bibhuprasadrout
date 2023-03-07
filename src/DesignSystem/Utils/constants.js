@@ -9,11 +9,11 @@ html {
     overflow: hidden;
     height: 100%;
 }
-
 body {
-    overflow: auto;
+    overflow: hidden auto;
     height: 100%;
 }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -83,6 +83,8 @@ table {
 export const GlobalColors = {
   primary: "#4ABDAC",
   secondary: "#D2512E",
-  btn_primary: "#F78733",
-  text_primary: "#DFDCE3",
+  solid: "#F78733",
+  fragment: "#DFDCE3",
+  dark: "rgba(0, 0, 0, 0.7)",
+  light: "rgba(255, 255, 255, 0.7)",
 };

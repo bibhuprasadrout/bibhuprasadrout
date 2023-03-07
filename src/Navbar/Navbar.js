@@ -24,6 +24,7 @@ const Nav = styled.div`
   height: 4rem;
   transition: all 1s ease;
   border-radius: 0;
+  z-index: 11;
   .menuIcon {
     position: absolute;
     top: 50%;
@@ -49,10 +50,10 @@ const Nav = styled.div`
     border-radius: 0;
     .link {
       transform: scale(1);
-      color: ${(props) => props.theme.text_primary};
+      color: ${(props) => props.theme.fragment};
       &:hover {
         transform: scale(1.1);
-        color: ${(props) => props.theme.btn_primary};
+        color: ${(props) => props.theme.solid};
       }
     }
   }

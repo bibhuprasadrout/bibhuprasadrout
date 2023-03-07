@@ -53,7 +53,7 @@ const HomeBody = styled.section`
           padding: 0 0.17rem;
           border-radius: 0;
           animation: ${blinkerSimulator} linear infinite 3s alternate;
-          color: ${(props) => props.theme.text_primary};
+          color: ${(props) => props.theme.fragment};
         }
       }
     }
