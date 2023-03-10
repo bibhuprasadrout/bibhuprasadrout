@@ -30,16 +30,14 @@ const Button = css`
   max-width: 13rem;
   &:hover,
   &:focus {
-    background-color: transparent;
-    border: 3px solid ${GlobalColors.solid};
+    background-color: ${GlobalColors.secondary};
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   }
   &:hover {
     transform: translateY(-1px);
   }
   &:active {
-    background-color: transparent;
-    border: 3px solid ${GlobalColors.fragment};
+    background-color: ${GlobalColors.secondary};
     box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
     transform: translateY(0);
   }

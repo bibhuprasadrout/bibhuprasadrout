@@ -14,7 +14,11 @@ const navbarBackgroundAnimation = keyframes`
 }
 `;
 const Nav = styled.div`
-  background: linear-gradient(70deg, #d2512e, #4abdac, #f78733);
+  background: linear-gradient(
+    70deg,
+    ${(props) => props.theme.secondary},
+    ${(props) => props.theme.dark}
+  );
   background-size: 400% 400%;
   animation: ${navbarBackgroundAnimation} ease infinite 17s;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.75);
