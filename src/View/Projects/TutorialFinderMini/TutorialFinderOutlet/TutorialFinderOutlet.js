@@ -12,10 +12,6 @@ const Outlet = styled.div`
   margin: 1.5rem 0 0;
   max-height: 25rem;
   overflow: scroll;
-  ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
 `;
 const CallToAction = styled(Card)`
   width: calc(100%-2rem);

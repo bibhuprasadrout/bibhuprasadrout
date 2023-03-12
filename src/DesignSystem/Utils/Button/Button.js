@@ -6,7 +6,7 @@ const Button = css`
   background-clip: padding-box;
   background-color: ${GlobalColors.solid};
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 0.7rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: ${GlobalColors.fragment};
