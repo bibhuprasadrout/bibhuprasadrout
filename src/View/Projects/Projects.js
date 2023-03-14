@@ -61,7 +61,7 @@ export const Projects = () => {
   const iframe = `<iframe height="100%" 
   style = "width: 100%;"
   scrolling = "yes"
-  title = "fx."
+  title = "TrackAllExpenses"
   src = "https://trackallexpenses.netlify.app/"
   frameborder = "no" allowtransparency = "true" allowfullscreen = "true" ></iframe >`;
   const ref = useRef();
