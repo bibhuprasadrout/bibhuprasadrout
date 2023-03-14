@@ -9,6 +9,7 @@ import styled from "styled-components";
 const BackgroundPrimary = styled.div`
   background-color: ${(props) => props.theme.primary};
   min-height: 100vh;
+  width: 100%;
 `;
 const OutletWrapper = styled.div`
   background-color: transperant;

@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useTyper } from "../../Utils/Hooks/useTyper";
 import { AnchoredButton } from "../../DesignSystem/Utils/Button/Button";
+import { Images } from "../../Assets/Images";
 const blinkerSimulator = keyframes`
   0%{
           border-right: 7px solid #DFDCE3;
@@ -59,8 +60,8 @@ const HomeBody = styled.section`
     }
   }
 `;
-const AerrowHead = styled.span`
-  font-size: 0.9rem;
+const AerrowHead = styled.img`
+  height: 1rem;
   padding: 0 0 0 0.7rem;
 `;
 export const Home = (props) => {
@@ -85,7 +86,8 @@ export const Home = (props) => {
             target={"_blank"}
             href={"https://www.linkedin.com/in/bibhuprasadrout-lin/"}
           >
-            Looking to hire <AerrowHead>⮞</AerrowHead>
+            Looking to hire{" "}
+            <AerrowHead src={Images.playFragment} alt="right arrow" />
           </AnchoredButton>
         </div>
       </HomeBody>

@@ -37,6 +37,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
   font-family : Tahoma, Verdana, Arial;
+  line-height: 1.3;
 }
 div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
