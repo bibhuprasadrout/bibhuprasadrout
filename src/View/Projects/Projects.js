@@ -36,26 +36,6 @@ const ProjectsBody = styled.section`
         }
       }
     }
-    @media (min-width: 48em) {
-      display: grid;
-      grid-template-columns: 23em 23em;
-      max-width: 48rem;
-      margin: 0 auto 3rem;
-      justify-content: center;
-      .sectionTitle {
-        grid-column: span 2;
-      }
-      .sectionInfo {
-        grid-column: span 1;
-      }
-      .project {
-        grid-column: span 1;
-        min-height: max-content;
-        .iframe {
-          height: inherit;
-        }
-      }
-    }
   }
 `;
 export const Projects = () => {

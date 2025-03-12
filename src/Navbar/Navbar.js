@@ -78,7 +78,6 @@ const Nav = styled.nav`
 
     &.active {
       color: ${(props) => props.theme.solid};
-      border-bottom: 2px solid ${(props) => props.theme.solid};
     }
   }
 `;

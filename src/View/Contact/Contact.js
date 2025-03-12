@@ -21,7 +21,7 @@ const ContactCard = styled(Card)`
 
   .email {
     font-size: 1.3rem;
-    color: ${(props) => props.theme.dark};
+    color: ${(props) => props.theme.primary};
     display: block;
     max-width: fit-content;
     margin: 0 auto;
