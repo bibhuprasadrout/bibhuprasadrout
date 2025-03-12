@@ -9,6 +9,7 @@ const LandingBody = styled.div`
   .card {
     margin: 0 auto;
     max-height: 100%;
+    border-radius: 7px;
     .title {
       .mainTitle {
         padding: 0 0 0.3rem 0;

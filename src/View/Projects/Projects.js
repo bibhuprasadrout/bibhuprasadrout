@@ -11,6 +11,7 @@ const ProjectsBody = styled.section`
   .majorproject {
     margin: 0 auto 3rem;
     padding: 1rem;
+    border-radius: 7px;
     background-color: ${(props) => props.theme.dark};
     .sectionInfo {
       padding: 0 0 1rem;

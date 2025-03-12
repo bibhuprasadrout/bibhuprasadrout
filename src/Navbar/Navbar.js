@@ -2,182 +2,131 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { Images } from "../Assets/Images";
-const navbarBackgroundAnimation = keyframes`
-0%{
-  background-position: 0% 50%;
-}
-50%{
-  background-position: 100% 50%;
-}
-100%{
-  background-position: 0% 50%;
-}
+
+// Mobile menu slide-in animation
+const slideIn = keyframes`
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
-const Nav = styled.div`
-  background: linear-gradient(
-    70deg,
-    ${(props) => props.theme.secondary},
-    ${(props) => props.theme.dark}
-  );
-  background-size: 400% 400%;
-  animation: ${navbarBackgroundAnimation} ease infinite 17s;
-  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.75);
-  width: 100%;
-  position: sticky;
+
+const Nav = styled.nav`
+  background-color: ${(props) => props.theme.dark};
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.75);
+  position: fixed;
   top: 0;
+  width: 100%;
   height: 4rem;
-  transition: all 1s ease;
-  border-radius: 0;
-  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+
   .menuIcon {
-    position: absolute;
-    top: 50%;
-    right: 2.1rem;
-    transform: translate(0, -50%);
-    max-width: fit-content;
     cursor: pointer;
     .icon {
-      width: 2.1rem;
+      width: 2rem;
     }
-    @media (min-width: 48em) {
+    @media (min-width: 720px) {
       display: none;
     }
   }
-  .navItems,
-  .navItemsMobile {
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    height: 100%;
-    align-items: center;
-    border-radius: 0;
-    .link {
-      transform: scale(1);
-      color: ${(props) => props.theme.fragment};
-      &:hover {
-        transform: scale(1.1);
-        color: ${(props) => props.theme.solid};
-      }
-    }
-  }
-  .navItemsMobile {
-    display: flex;
-    position: relative;
-    top: 100%;
-    width: 100%;
-    margin: 0 auto;
-    background-color: ${(props) => props.theme.secondary};
-    @media (min-width: 48em) {
-      display: none;
-    }
-  }
+
   .navItems {
     display: none;
-    @media (min-width: 48em) {
+    @media (min-width: 720px) {
       display: flex;
-      width: fit-content;
-      margin: 0 11vw 0 auto;
+      gap: 1.5rem;
+    }
+  }
+
+  .navItemsMobile {
+    display: ${({ $menuVisible }) => ($menuVisible ? "flex" : "none")};
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    background-color: ${(props) => props.theme.secondary};
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    animation: ${slideIn} 0.3s ease-in-out;
+
+    @media (min-width: 720px) {
+      display: none;
+    }
+  }
+
+  .link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.fragment};
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+
+    &:hover {
+      color: ${(props) => props.theme.solid};
+      transform: scale(1.1);
+    }
+
+    &.active {
+      color: ${(props) => props.theme.solid};
+      border-bottom: 2px solid ${(props) => props.theme.solid};
     }
   }
 `;
+
 export const Navbar = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
+
   const navItems = [
-    {
-      id: "navHome",
-      className: "link",
-      url: "/",
-      value: "Home",
-    },
-    {
-      id: "navAbout",
-      className: "link",
-      url: "/about",
-      value: "About",
-    },
-    {
-      id: "navSkills",
-      className: "link",
-      url: "/skills",
-      value: "Skills",
-    },
-    {
-      id: "navProjects",
-      className: "link",
-      url: "/projects",
-      value: "Projects",
-    },
-    {
-      id: "navContact",
-      className: "link",
-      url: "/contact",
-      value: "Contact",
-    },
+    { id: "navHome", url: "/", value: "Home" },
+    { id: "navAbout", url: "/about", value: "About" },
+    { id: "navSkills", url: "/skills", value: "Skills" },
+    { id: "navProjects", url: "/projects", value: "Projects" },
+    { id: "navContact", url: "/contact", value: "Contact" },
   ];
-  const [menuVisiblity, setMenuVisiblity] = useState(false);
-  const handleMenuVisiblity = () => {
-    setMenuVisiblity((prev) => !prev);
-  };
-  const handleNavItemStyle = () => {};
+
   return (
-    <>
-      {
-        <Nav>
-          <span className="menuIcon" onClick={handleMenuVisiblity}>
-            <img className="icon" src={Images.burgerMenu} />
-          </span>
-          {menuVisiblity ? (
-            <div className="navItemsMobile">
-              {navItems.map((item) => (
-                <NavLink
-                  className={item.className}
-                  to={item.url}
-                  key={item.id}
-                  style={({ isActive }) =>
-                    isActive ? { color: "#F78733" } : undefined
-                  }
-                  onClick={handleMenuVisiblity}
-                >
-                  {item.value}
-                </NavLink>
-              ))}
-            </div>
-          ) : (
-            <div className="navItems">
-              {navItems.map((item) => (
-                <NavLink
-                  className={item.className}
-                  to={item.url}
-                  key={item.id}
-                  style={({ isActive }) =>
-                    isActive ? { color: "#F78733" } : undefined
-                  }
-                >
-                  {item.value}
-                </NavLink>
-              ))}
-            </div>
-          )}
-        </Nav>
-      }
-    </>
+    <Nav $menuVisible={menuVisible}>
+      {/* Mobile Menu Icon */}
+      <span className='menuIcon' onClick={() => setMenuVisible(!menuVisible)}>
+        <img className='icon' src={Images.burgerMenu} alt='Menu' />
+      </span>
+
+      {/* Desktop Navigation */}
+      <div className='navItems'>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.id}
+            className='link'
+            to={item.url}
+            activeClassName='active'>
+            {item.value}
+          </NavLink>
+        ))}
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className='navItemsMobile'>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.id}
+            className='link'
+            to={item.url}
+            activeClassName='active'
+            onClick={() => setMenuVisible(false)}>
+            {item.value}
+          </NavLink>
+        ))}
+      </div>
+    </Nav>
   );
 };
-
-// const [navbar, setNavbar] = useState(false);
-// const navController = () => {
-//   console.log("navController is called");
-//   console.log(document.body.scrollTop);
-//   if (document.body.scrollTop > 50) {
-//     console.log("scrollY is greater than 100");
-//     setNavbar(true);
-//   } else {
-//     setNavbar(false);
-//   }
-// };
-// useEffect(() => {
-//   document.body.addEventListener("scroll", navController);
-//   return () => {
-//     document.body.removeEventListener("scroll", navController);
-//   };
-// }, []);

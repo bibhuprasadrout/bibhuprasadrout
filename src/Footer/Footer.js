@@ -1,11 +1,15 @@
 import styled from "styled-components";
 const FooterBody = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 3rem;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.theme.fragment};
-  border-radius: 0;
 `;
 const FooterText = styled.span`
   font-size: 0.87rem;

@@ -7,22 +7,23 @@ import { GlobalColors } from "./DesignSystem/Utils/constants";
 import styled from "styled-components";
 
 const BackgroundPrimary = styled.div`
-  background-color: ${(props) => props.theme.primary};
-  min-height: 100vh;
+  position: relative;
+  height: 100%;
   width: 100%;
+  background-color: ${(props) => props.theme.primary};
 `;
 const OutletWrapper = styled.div`
-  background-color: transperant;
-  min-height: calc(100vh - 7rem);
+  height: auto;
+  padding: 4rem 0 3rem 0;
 `;
 
 const App = () => {
   return (
     <>
       <ThemeProvider theme={GlobalColors}>
-        <BackgroundPrimary className="bodyBackgroundPrimary">
+        <BackgroundPrimary className='bodyBackgroundPrimary'>
           <Navbar />
-          <OutletWrapper className="outletWrapper">
+          <OutletWrapper className='outletWrapper'>
             <Outlet />
           </OutletWrapper>
           <Footer />

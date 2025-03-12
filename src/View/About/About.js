@@ -4,16 +4,16 @@ import { Images } from "../../Assets/Images";
 import { useTyper } from "../../Utils/Hooks/useTyper";
 import { AnchoredButton } from "../../DesignSystem/Utils/Button/Button";
 const AboutBody = styled.div`
-  height: auto;
-  min-height: 70vh;
   display: flex;
   flex-flow: column;
   gap: 3rem;
   padding: 1rem 0;
   .title {
+    .subTitle {
+      border-radius: 7px;
+    }
   }
   .main {
-    height: 100%;
     @media (min-width: 48rem) {
       display: flex;
       flex-wrap: wrap;
@@ -42,49 +42,21 @@ const AboutBody = styled.div`
           }
         }
         .mediaLink {
+          width: auto;
           display: flex;
-          gap: 0.7rem;
-          .iconBackdrop {
-            display: grid;
-            grid-template-columns: 1fr;
+          align-items: center;
+          justify-content: center;
+          gap: 0.3rem;
+          .iconWrapper {
+            width: 2.3rem;
+            height: 2.3rem;
+            display: flex;
             align-items: center;
-            gap: 0.3rem;
-            .iconWrapper {
-              width: 3rem;
-              height: 3rem;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border-radius: 11px 11px 11px 0;
-              background-color: ${(props) => props.theme.fragment};
-              grid-row-start: 1;
-              grid-column-start: 1;
-              .icon {
-                width: 1.5rem;
-              }
-            }
-            .iconName {
-              font-size: 1.3rem;
-              background-color: ${(props) => props.theme.fragment};
-              color: ${(props) => props.theme.solid};
-              grid-row-start: 1;
-              grid-column-start: 1;
-              height: 3rem;
-              border-radius: 11px 11px 11px 0;
-              display: flex;
-              justify-content: flex-end;
-              align-items: center;
-              padding: 0;
-              width: 3rem;
-              overflow: hidden;
-              transition: 0.7s;
-            }
-            &:hover {
-              width: auto;
-              .iconName {
-                padding: 0 0.7rem 0 3rem;
-                width: auto;
-              }
+            justify-content: center;
+            border-radius: 7px 7px 7px 0;
+            background-color: ${(props) => props.theme.fragment};
+            .icon {
+              border-radius: 0;
             }
           }
         }
@@ -150,70 +122,79 @@ export const About = () => {
     "JavaScript Developer",
     "Frontend Developer",
   ];
+
   return (
     <>
       <AboutBody>
-        <div className="title">
-          <MainTitle>- Get to know me -</MainTitle>
-          <SubTitle>Over a cup of coffee maybe?</SubTitle>
+        <div className='title'>
+          <MainTitle className='mainTitle'>- Get to know me -</MainTitle>
+          <SubTitle className='subTitle'>Over a cup of coffee maybe?</SubTitle>
         </div>
-        <div className="main">
-          <div className="imageWrapper">
-            <div className="image">
-              <img className="persona" src={Images.persona} alt="persona" />
-              <div className="mediaLink">
+        <div className='main'>
+          <div className='imageWrapper'>
+            <div className='image'>
+              <img className='persona' src={Images.persona} alt='persona' />
+              <div className='mediaLink'>
                 <a
-                  className="iconBackdrop"
+                  className='iconWrapper'
                   href={"https://www.linkedin.com/in/bibhuprasadrout-lin/"}
-                  target={"_blank"}
-                >
-                  <span className="iconName">LinkedIn</span>
-                  <span className="iconWrapper">
-                    <img
-                      className="icon"
-                      src={Images.linkedIn}
-                      alt={"media icon"}
-                    />
-                  </span>
+                  target={"_blank"}>
+                  <img
+                    className='icon'
+                    src={Images.linkedIn}
+                    alt={"media icon"}
+                  />
                 </a>
                 <a
-                  className="iconBackdrop"
-                  href={"https://twitter.com/bibhuprasadrout"}
-                  target={"_blank"}
-                >
-                  <span className="iconName">Twitter</span>
-                  <span className="iconWrapper">
-                    <img
-                      className="icon"
-                      src={Images.twitter}
-                      alt={"media icon"}
-                    />
-                  </span>
-                </a>
-                <a
-                  className="iconBackdrop"
+                  className='iconWrapper'
                   href={"https://github.com/bibhuprasadrout"}
-                  target={"_blank"}
-                >
-                  <span className="iconName">Github</span>
-                  <span className="iconWrapper">
-                    <img
-                      className="icon"
-                      src={Images.github}
-                      alt={"media icon"}
-                    />
-                  </span>
+                  target={"_blank"}>
+                  <img
+                    className='icon'
+                    src={Images.github}
+                    alt={"media icon"}
+                  />
+                </a>
+                <a
+                  className='iconWrapper'
+                  href={"https://www.behance.net/bibhuprasadrout"}
+                  target={"_blank"}>
+                  <img
+                    className='icon'
+                    src={Images.behance}
+                    alt={"media icon"}
+                  />
+                </a>
+                <a
+                  className='iconWrapper'
+                  href={"https://www.instagram.com/bibhuprasadrout/"}
+                  target={"_blank"}>
+                  <img
+                    className='icon'
+                    src={Images.instagram}
+                    alt={"media icon"}
+                  />
+                </a>
+                <a
+                  className='iconWrapper'
+                  href={"https://twitter.com/bibhuprasadrout"}
+                  target={"_blank"}>
+                  <img
+                    className='icon'
+                    src={Images.twitter}
+                    alt={"media icon"}
+                  />
                 </a>
               </div>
             </div>
           </div>
-          <div className="infoWrapper">
-            <div className="info">
-              <div className="heading">
+          <div className='infoWrapper'>
+            <div className='info'>
+              <div className='heading'>
                 <p>I'am BibhuPrasadRout and I'm a&nbsp;</p>
-                <p className="personaDesignation">{useTyper(designations)}</p>
+                <p className='personaDesignation'>{useTyper(designations)}</p>
               </div>
-              <p className="profess">
+              <p className='profess'>
                 I'm a passionate React.js Developer. I aim to build fast,
                 scalable, mobile-first, foolproof websites. I enjoy stories and
                 am a quick study. I welcome the opportunity to learn and aquire
@@ -223,12 +204,11 @@ export const About = () => {
                 frameworks..
               </p>
               <AnchoredButton
-                className="infoButton"
-                target="_blank"
-                href="https://drive.google.com/file/d/12HzKPSHOx_QTEoaW1Mk5kpCMr0hQhjo4/view?usp=sharing"
-              >
+                className='infoButton'
+                target='_blank'
+                href='https://drive.google.com/file/d/12HzKPSHOx_QTEoaW1Mk5kpCMr0hQhjo4/view?usp=sharing'>
                 Download CV&nbsp;
-                <AerrowHead src={Images.playFragment} alt="right arrow" />
+                <AerrowHead src={Images.playFragment} alt='right arrow' />
               </AnchoredButton>
             </div>
           </div>

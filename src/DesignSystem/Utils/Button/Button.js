@@ -19,7 +19,6 @@ const Button = css`
   margin: 0;
   min-height: 3rem;
   padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
   text-decoration: none;
   transition: all 250ms;
   user-select: none;

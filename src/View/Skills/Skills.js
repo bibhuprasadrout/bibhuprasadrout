@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Images } from "../../Assets/Images";
 import { NormalButton } from "../../DesignSystem/Utils/Button/Button";
 const SkillsBody = styled.ul`
-  padding: 1rem;
+  padding: 3rem 1rem 1rem;
+  height: calc(100vh - 11rem);
   max-width: 37rem;
   margin: 0 auto;
 `;

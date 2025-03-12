@@ -31,16 +31,20 @@ import tailwindLight from "./Global/tailwind_light.svg";
 import burgerMenu from "./Navbar/burger-bar.png";
 //Home
 //About
-import bibhuprasadrout from "./About/bibhuprasadrout_370x497px.jpg";
+import bibhuprasadrout from "./About/bibhuprasadrout.jpg";
 import linkedIn from "./About/linkedin.png";
 import twitter from "./About/twitter.png";
 import github from "./About/github.png";
+import instagram from "./About/instagram.png";
+import behance from "./About/behance.png";
 export const Images = {
   burgerMenu: burgerMenu,
   persona: bibhuprasadrout,
   linkedIn: linkedIn,
   twitter: twitter,
   github: github,
+  instagram: instagram,
+  behance: behance,
   playPrimary: playPrimary,
   playSecondary: playSecondary,
   playSolid: playSolid,
