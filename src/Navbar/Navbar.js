@@ -20,26 +20,28 @@ const Nav = styled.nav`
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
-  width: 100%;
   height: 4rem;
+  width: 100%;
+  max-width: 720px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
 
   .menuIcon {
     cursor: pointer;
+    padding: 1rem;
     .icon {
       width: 2rem;
     }
-    @media (min-width: 720px) {
+    @media (min-width: 600px) {
       display: none;
     }
   }
 
   .navItems {
     display: none;
-    @media (min-width: 720px) {
+    padding: 1rem;
+    @media (min-width: 600px) {
       display: flex;
       gap: 1.5rem;
     }
@@ -58,7 +60,7 @@ const Nav = styled.nav`
     padding: 1rem 0;
     animation: ${slideIn} 0.3s ease-in-out;
 
-    @media (min-width: 720px) {
+    @media (min-width: 600px) {
       display: none;
     }
   }
