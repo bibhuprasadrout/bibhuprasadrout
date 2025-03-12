@@ -36,86 +36,85 @@ export const Skills = () => {
   return (
     <>
       <SkillsBody>
-        <SkillList className="skills">
+        <SkillList className='skills'>
           <img
-            key="1"
-            className="skill"
+            key='1'
+            className='skill'
             src={Images.reactDark}
-            alt="skill icon"
+            alt='skill icon'
           />
-          <img key="2" className="skill" src={Images.git} alt="skill icon" />
-          <img key="3" className="skill" src={Images.html} alt="skill icon" />
-          <img key="4" className="skill" src={Images.css} alt="skill icon" />
+          <img key='2' className='skill' src={Images.git} alt='skill icon' />
+          <img key='3' className='skill' src={Images.html} alt='skill icon' />
+          <img key='4' className='skill' src={Images.css} alt='skill icon' />
           <img
-            key="5"
-            className="skill"
+            key='5'
+            className='skill'
             src={Images.javascript}
-            alt="skill icon"
+            alt='skill icon'
           />
-          <img key="6" className="skill" src={Images.redux} alt="skill icon" />
-          <img key="7" className="skill" src={Images.sass} alt="skill icon" />
+          <img key='6' className='skill' src={Images.redux} alt='skill icon' />
+          <img key='7' className='skill' src={Images.sass} alt='skill icon' />
           <img
-            key="8"
-            className="skill"
+            key='8'
+            className='skill'
             src={Images.styledComponents}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="9"
-            className="skill"
+            key='9'
+            className='skill'
             src={Images.tailwindDark}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="10"
-            className="skill"
+            key='10'
+            className='skill'
             src={Images.postman}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="11"
-            className="skill"
+            key='11'
+            className='skill'
             src={Images.figmaDark}
-            alt="skill icon"
+            alt='skill icon'
           />
-          <img key="12" className="skill" src={Images.jest} alt="skill icon" />
+          <img key='12' className='skill' src={Images.jest} alt='skill icon' />
           <img
-            key="13"
-            className="skill"
+            key='13'
+            className='skill'
             src={Images.nodeJsDark}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="14"
-            className="skill"
+            key='14'
+            className='skill'
             src={Images.expressJsDark}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="15"
-            className="skill"
+            key='15'
+            className='skill'
             src={Images.jQuery}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="16"
-            className="skill"
+            key='16'
+            className='skill'
             src={Images.illustrator}
-            alt="skill icon"
+            alt='skill icon'
           />
           <img
-            key="17"
-            className="skill"
+            key='17'
+            className='skill'
             src={Images.photoshop}
-            alt="skill icon"
+            alt='skill icon'
           />
           <span></span>
           <NormalButton
-            className="skillsAction"
-            onClick={navigate("/projects")}
-          >
+            className='skillsAction'
+            onClick={() => navigate("/projects")}>
             Projects&nbsp;
-            <AerrowHead src={Images.playFragment} alt="right arrow" />
+            <AerrowHead src={Images.playFragment} alt='right arrow' />
           </NormalButton>
         </SkillList>
       </SkillsBody>
