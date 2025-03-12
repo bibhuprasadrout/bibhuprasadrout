@@ -206,7 +206,7 @@ export const About = () => {
               <AnchoredButton
                 className='infoButton'
                 target='_blank'
-                href='https://drive.google.com/file/d/12HzKPSHOx_QTEoaW1Mk5kpCMr0hQhjo4/view?usp=sharing'>
+                href='https://drive.google.com/file/d/1RTBUwhAHJQnKy1PXVQnSmbUQQJ8sx2Es/view?usp=sharing'>
                 Download CV&nbsp;
                 <AerrowHead src={Images.playFragment} alt='right arrow' />
               </AnchoredButton>
