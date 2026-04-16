@@ -1,133 +1,174 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
-import { Images } from "../Assets/Images";
-
-// Mobile menu slide-in animation
-const slideIn = keyframes`
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const Nav = styled.nav`
-  background-color: ${(props) => props.theme.dark};
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.75);
   position: fixed;
   top: 0;
-  height: 4rem;
   width: 100%;
-  max-width: 720px;
+  display: flex;
+  flex-direction: column; /* Stack TopBar and NavList */
+  z-index: 1000;
+`;
+const TopBar = styled.div`
+  width: 100%;
+  height: 4.5rem;
+  background-color: ${(props) =>
+    props.theme.light}; /* Match your Soft Slate theme */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10%;
+  z-index: 10; /* Higher than NavList */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+`;
 
-  .menuIcon {
-    cursor: pointer;
-    padding: 1rem;
-    .icon {
-      width: 2rem;
-    }
-    @media (min-width: 600px) {
-      display: none;
-    }
-  }
+const Logo = styled.a`
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: ${(props) => props.theme.primary};
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+`;
+const NavList = styled.div`
+  display: flex;
+  gap: 1rem;
 
-  .navItems {
-    display: none;
-    padding: 1rem;
-    @media (min-width: 600px) {
-      display: flex;
-      gap: 1.5rem;
-    }
-  }
-
-  .navItemsMobile {
-    display: ${({ $menuVisible }) => ($menuVisible ? "flex" : "none")};
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    width: 100%;
-    background-color: ${(props) => props.theme.secondary};
+  @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    animation: ${slideIn} 0.3s ease-in-out;
+    background-color: white;
+    width: 100%;
+    padding: 2rem;
+    gap: 2rem;
+    text-align: center;
+    border-bottom: 1px solid ${(props) => props.theme.border};
 
-    @media (min-width: 600px) {
-      display: none;
-    }
+    /* Position it right at the bottom of the TopBar */
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+
+    /* Animation: Slide down from the bar */
+    transform: ${(props) =>
+      props.open ? "translateY(0)" : "translateY(-110%)"};
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Ensure it stays BEHIND the TopBar but ABOVE the page content */
+    z-index: 5;
   }
 
-  .link {
-    font-size: 1rem;
-    font-weight: bold;
-    color: ${(props) => props.theme.fragment};
-    text-decoration: none;
-    padding: 0.5rem;
-    transition: color 0.3s ease-in-out, transform 0.2s;
-
-    &:hover {
-      color: ${(props) => props.theme.solid};
-      transform: scale(1.1);
-    }
-
-    &.active {
-      color: ${(props) => props.theme.solid};
-    }
+  @media (min-width: 769px) {
+    /* Desktop layout: keep it inline within the Nav */
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
 
-export const Navbar = () => {
-  const [menuVisible, setMenuVisible] = useState(false);
+const NavLink = styled.a`
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: ${(props) => props.theme.dark};
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
 
-  const navItems = [
-    { id: "navHome", url: "/", value: "Home" },
-    { id: "navAbout", url: "/about", value: "About" },
-    { id: "navSkills", url: "/skills", value: "Skills" },
-    { id: "navProjects", url: "/projects", value: "Projects" },
-    { id: "navContact", url: "/contact", value: "Contact" },
-  ];
+  /* Hover State: Subtle background tint */
+  &:hover {
+    color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.solid};
+  }
+
+  /* Active State Indicator */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: ${(props) => props.theme.secondary};
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    width: 60%;
+  }
+`;
+
+const Burger = styled.div`
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+
+  /* --- ADD THESE LINES --- */
+  user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -webkit-tap-highlight-color: transparent; /* Removes the blue box on mobile */
+  /* ----------------------- */
+
+  span {
+    width: 25px;
+    height: 3px;
+    background: ${(props) => props.theme.dark};
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  ${(props) =>
+    props.open &&
+    `
+    span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+  `}
+`;
+
+export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const items = ["Home", "About", "Skills", "Projects", "Contact"];
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <Nav $menuVisible={menuVisible}>
-      {/* Mobile Menu Icon */}
-      <span className='menuIcon' onClick={() => setMenuVisible(!menuVisible)}>
-        <img className='icon' src={Images.burgerMenu} alt='Menu' />
-      </span>
+    <Nav scrolled={scrolled}>
+      {/* 1. This bar stays on top and is completely opaque */}
+      <TopBar>
+        <Logo href='#home'>BPR</Logo>
+        <Burger open={open} onClick={() => setOpen(!open)}>
+          <span />
+          <span />
+          <span />
+        </Burger>
+      </TopBar>
 
-      {/* Desktop Navigation */}
-      <div className='navItems'>
-        {navItems.map((item) => (
+      {/* 2. This list now slides from "under" the TopBar */}
+      <NavList open={open}>
+        {items.map((item) => (
           <NavLink
-            key={item.id}
-            className='link'
-            to={item.url}
-            activeClassName='active'>
-            {item.value}
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            onClick={() => setOpen(false)}>
+            {item}
           </NavLink>
         ))}
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className='navItemsMobile'>
-        {navItems.map((item) => (
-          <NavLink
-            key={item.id}
-            className='link'
-            to={item.url}
-            activeClassName='active'
-            onClick={() => setMenuVisible(false)}>
-            {item.value}
-          </NavLink>
-        ))}
-      </div>
+      </NavList>
     </Nav>
   );
 };
