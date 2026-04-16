@@ -102,7 +102,7 @@ const NavLink = styled.a`
 `;
 
 const Burger = styled.div`
-  display: none;
+  display: flex;
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
@@ -119,10 +119,6 @@ const Burger = styled.div`
     background: ${(props) => props.theme.dark};
     border-radius: 10px;
     transition: 0.3s;
-  }
-
-  @media (max-width: 768px) {
-    display: flex;
   }
 
   ${(props) =>

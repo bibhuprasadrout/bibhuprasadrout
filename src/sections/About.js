@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { MainTitle, SubTitle, AnchoredButton } from "../styles/UIElements";
-import { Images } from "../Assets/Images";
 import { useTyper } from "../Hooks/useTyper";
 
 const AboutContainer = styled.section`
@@ -151,8 +150,9 @@ export const About = () => {
           <div className='persona-wrapper'>
             <img
               className='persona'
-              src={Images.persona}
+              src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334977/bibhuprasadrout_xmzfz3.jpg'
               alt='Bibhu Prasad Rout'
+              loading='lazy'
             />
           </div>
           <div className='social-links'>
@@ -161,35 +161,60 @@ export const About = () => {
               href='https://linkedin.com/in/bibhuprasadrout-lin/'
               target='_blank'
               rel='noreferrer'>
-              <img className='icon' src={Images.linkedIn} alt='LinkedIn' />
+              <img
+                className='icon'
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334980/linkedin_mwud46.png'
+                alt='LinkedIn'
+                loading='lazy'
+              />
             </a>
             <a
               className='iconWrapper'
               href='https://github.com/bibhuprasadrout'
               target='_blank'
               rel='noreferrer'>
-              <img className='icon' src={Images.github} alt='GitHub' />
+              <img
+                className='icon'
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334978/github_e8myav.png'
+                alt='GitHub'
+                loading='lazy'
+              />
             </a>
             <a
               className='iconWrapper'
               href='https://www.behance.net/bibhuprasadrout'
               target='_blank'
               rel='noreferrer'>
-              <img className='icon' src={Images.behance} alt='Behance' />
+              <img
+                className='icon'
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334982/behance_fdafcw.png'
+                alt='Behance'
+                loading='lazy'
+              />
             </a>
             <a
               className='iconWrapper'
               href='https://www.instagram.com/bibhuprasadrout/'
               target='_blank'
               rel='noreferrer'>
-              <img className='icon' src={Images.instagram} alt='Instagram' />
+              <img
+                className='icon'
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334980/instagram_w52qpc.png'
+                alt='Instagram'
+                loading='lazy'
+              />
             </a>
             <a
               className='iconWrapper'
               href='https://twitter.com/bibhuprasadrout'
               target='_blank'
               rel='noreferrer'>
-              <img className='icon' src={Images.twitter} alt='Twitter' />
+              <img
+                className='icon'
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334981/twitter_qepkor.png'
+                alt='Twitter'
+                loading='lazy'
+              />
             </a>
           </div>
         </VisualSide>
@@ -209,10 +234,15 @@ export const About = () => {
           </p>
           <div className='cta-wrapper'>
             <AnchoredButton
-              href='https://drive.google.com/file/d/1RTBUwhAHJQnKy1PXVQnSmbUQQJ8sx2Es/view?usp=sharing'
-              target='_blank'>
+              href='https://drive.google.com/file/d/1MU6400CWnlC4UxYjz8xmi7WyhpbFZqcr/view?usp=drive_link'
+              target='_blank'
+              rel='noreferrer'>
               Download CV
-              <ArrowIcon src={Images.playFragment} alt='arrow' />
+              <ArrowIcon
+                src='https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334963/play_fragment_wocjlf.png'
+                alt='play arrow icon'
+                loading='lazy'
+              />
             </AnchoredButton>
           </div>
         </TextSide>

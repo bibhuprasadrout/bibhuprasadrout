@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Images } from "../Assets/Images";
 
 const FooterBody = styled.footer`
   width: 100%;
@@ -97,27 +96,27 @@ export const Footer = () => {
     {
       id: "li",
       link: "https://www.linkedin.com/in/bibhuprasadrout-lin/",
-      img: Images.linkedIn,
+      img: "https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334980/linkedin_mwud46.png",
     },
     {
       id: "gh",
       link: "https://github.com/bibhuprasadrout",
-      img: Images.github,
+      img: "https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334978/github_e8myav.png",
     },
     {
       id: "bh",
       link: "https://www.behance.net/bibhuprasadrout",
-      img: Images.behance,
+      img: "https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334982/behance_fdafcw.png",
     },
     {
       id: "ig",
       link: "https://www.instagram.com/bibhuprasadrout/",
-      img: Images.instagram,
+      img: "https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334980/instagram_w52qpc.png",
     },
     {
       id: "tw",
       link: "https://twitter.com/bibhuprasadrout",
-      img: Images.twitter,
+      img: "https://res.cloudinary.com/dsk4p5j0o/image/upload/q_auto/f_auto/v1776334981/twitter_qepkor.png",
     },
   ];
 
@@ -140,7 +139,12 @@ export const Footer = () => {
             href={item.link}
             target='_blank'
             rel='noreferrer'>
-            <img className='icon' src={item.img} alt='social icon' />
+            <img
+              className='icon'
+              src={item.img}
+              alt='social icon'
+              loading='lazy'
+            />
           </a>
         ))}
       </SocialLinks>
