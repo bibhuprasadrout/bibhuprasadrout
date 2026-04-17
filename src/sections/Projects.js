@@ -81,14 +81,14 @@ const ProjectsBody = styled.section`
       position: relative;
       width: 100%;
       /* 1. Limit the width so it doesn't get too wide on tablets */
-      max-width: 280px;
+      max-width: 320px;
       margin: 2rem auto 0;
 
       /* 2. Use aspect-ratio for modern browsers (9:16) */
       aspect-ratio: 9 / 16;
 
       /* 3. HARD LIMIT the height to ensure it fits on the screen */
-      max-height: 500px;
+      max-height: 700px;
 
       /* The Device Bezel */
       border: 8px solid #1e293b;
@@ -100,7 +100,7 @@ const ProjectsBody = styled.section`
 
       /* For older browsers that don't support aspect-ratio */
       @supports not (aspect-ratio: 9/16) {
-        height: 500px;
+        height: 570px;
       }
 
       iframe {
